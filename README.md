@@ -23,9 +23,10 @@ The front-end development teams JavaScript standards document.
     * [Comments](#comments)
     * [Operators](#operators)
 * [Patterns](#patterns)
-    * [Single point of entry](#single-point-of-entry)
     * [Separation of concerns](#separation-of-concerns)
     * [Single responsibility principle](#single-responsibility-principle)
+    * [Single point of entry](#single-point-of-entry)
+    * [RequireJS](requirejs)
     * [Browsers/vendor testing](#browsers-vendor-testing)
 
 ## Overview
@@ -45,6 +46,10 @@ This guide will not dictate what libraries or frameworks you should use in a pro
 This guide will assume you are proffient in JavaScript and familiar with many of it's quirks. It will assume you have a rough understanding of problems with closures and scope and help you work around these. For more information on these problems and other common pitfalls, please refer to the [JavaScript Bonsai Garden](http://bonsaiden.github.io/JavaScript-Garden) and [Douglas Crockfords The Good Parts](http://shop.oreilly.com/product/9780596517748.do).
 
 ## File structure
+
+As with our [CSS guidelines](https://github.com/work-club/CSS-Coding-Standards), structure of the code is important. All scripts should be within the `scripts` folders and neatly organised into sub-folders (e.g. Modules, Components, Utilities, Controllers, Routes etc). The only file that should exist at the root level of `scripts` is `app.js`.
+
+All files should be lowercase with dashes for spaces.
 
 ## Convention
 The following is a list of conventions for formatting, structure and overal code approach.
