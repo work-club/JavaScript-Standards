@@ -257,6 +257,97 @@ Always use `self` and ***not*** `_this` or `that`.
 
 ### Events
 
+When binding events, never directly reference classes used for styling. Instead, use `.js-` prefixed classes (that are not used for styling), or a data attribute e.g. `data-click-event`.
+
+***Do not*** place all logic in the callback of an event handler:
+
+***GOOD:***
+```
+   $(".js-navigation-click").on("click", function(event){
+      event.preventDefault();
+      var elementClicked = $(event.currentTarget);
+      onEventClick(elementClicked);
+   });
+   
+   var onEventClick = function(element){
+      setElementActiveState(element);
+   };
+   
+   var setElementActiveState = function(element){
+      element.addClass("active");
+   }
+```
+
+***BAD:***
+```
+   $(".navigation-click").on("click", function(event){
+      event.preventDefault();
+      var elementClicked = $(event.currentTarget).addClass("active");
+   });
+   
+```
+
+Whilst the second example is shorter, it's not scalable, nor is it possible to set the active state of the item outside of that click, making the code not very reusable. 
+
+One problem in the above example is that removing the event handler is not possible. This is because we've used an anonymous function. Whilst this is OK in some instances, this following pattern is preffered:
+
+```
+   $(".js-navigation-click").on("click", onEventClick);
+   
+   var onEventClick = function(element){
+      setElementActiveState(element);
+   };
+   
+   var setElementActiveState = function(element){
+      element.addClass("active");
+   }
+   
+   $(".js-navigation-click").off("click", onEventClick);
+```
+
+### Context Binding
+
+In some situations you will need to make sure an event handler is being called in a particular context. E.g:
+
+```
+   var myObject = {
+      init: function(){
+         $(".js-click").on("click", this.onClick);
+      },
+      
+      onClick: function(){
+         /* Click logic */
+      },
+      
+      remove: function(){
+         $(".js-click").off("click", this.onClick);
+      }
+   }
+```
+
+In the above example, the remove will not work as the context of `this` in `remove` is different to `init`. To overcome this, you need to bind the context of this function call, like so:
+
+```
+   var myObject = {
+      init: function(){
+      
+         this.clickEvenHandler = $.proxy(this.onClick, this);
+      
+         $(".js-click").on("click", this.clickEvenHandler);
+      },
+      
+      onClick: function(){
+         /* Click logic */
+      },
+      
+      remove: function(){
+         $(".js-click").off("click", this.clickEvenHandler);
+      }
+   }
+```
+
+Whilst this has one extra step and creates another property in the scope of `myObject`, it ensures the context of `onClick` always the same.
+
 ### Comments
 Use `/* */ ` for all comments, instead of `//`.
 
@@ -295,7 +386,7 @@ The use of a dependency management library such as [RequireJS](http://requirejs.
 
 Browsers and features should not be tested for directly, instead a more methodical abstraction should be implemented, similar to the [technique used by the BBC](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard). This approach advocates creating a core experience for all users first and then layering on features depending on their availability. 
 
-GOOD:
+***GOOD:***
 ```
   /* utils.js */
   var featureTests = {
@@ -320,7 +411,7 @@ GOOD:
   }
 ```
 
-BAD:
+***BAD:***
 
 ```
   /* app.js */
