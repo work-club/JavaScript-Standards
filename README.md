@@ -28,6 +28,7 @@ The front-end development teams JavaScript standards document.
     * [Single point of entry](#single-point-of-entry)
     * [RequireJS](requirejs)
     * [Browsers/vendor testing](#browsers-vendor-testing)
+* [Resources](#resources) 
 
 ## Overview
 
@@ -428,3 +429,17 @@ Browsers and features should not be tested for directly, instead a more methodic
 ```
 
 The second example is repetitive, messy and makes the assumption that this is the only place we will test for this and that the requirements for this feature will never change. In practice, this pattern would be dependant on a library such as [Modernizr](http://modernizr.com/).
+
+
+## Resources
+
+The following is a list of blogs, books and existing style guides that have incluenced our approach to our work.
+
+* [Maintainable Javascript - By Nicholas Zakas](http://www.amazon.co.uk/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680/ref=sr_1_1?s=books&ie=UTF8&qid=1395157123&sr=1-1&keywords=maintainable+javascript)
+* [The Good Parts - By Douglas Crockford](http://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?s=books&ie=UTF8&qid=1395157263&sr=1-1&keywords=the+good+parts)
+* [Pro JavaScript Patterns - By Ross Harmes and Dustin Diaz](http://www.amazon.co.uk/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X/ref=sr_1_1?s=books&ie=UTF8&qid=1395157273&sr=1-1&keywords=pro+javascript+design+patterns)
+* [JavaScript Bonsai Garden](http://bonsaiden.github.io/JavaScript-Garden/)
+* [AirBnb](https://github.com/airbnb/javascript)
+
+
+
