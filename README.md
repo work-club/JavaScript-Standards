@@ -65,7 +65,7 @@ Be sure to use the following formatting rules with all block statements:
   * leave one blank return after each large logical block of code
   * return lines longer than 80 characters
 
-Good:
+***GOOD:***
 ```
   if(x === userInput) {
     doSomething();
@@ -76,7 +76,7 @@ Good:
   }
 ```
 
-Bad:
+***BAD:***
 ```
   if(x === userInput)
     doSomething();
@@ -88,7 +88,6 @@ Bad:
 Use Pascal Case for Classes:
 ```
   var myClass = new MyClass();
-
 ```
 
 Use camelCase for objects (including modules, singletons) and functions:
@@ -108,18 +107,16 @@ Use camelCase for objects (including modules, singletons) and functions:
 ### Variables
 When defining a variable, place each new variable on a new line with a `var` keyword for each variable. When defining a new variable, you ***must*** use a `var` keyword to prevent global variables being created.
 
-Good: 
+***GOOD:*** 
 ```
   var exampleVar = "exampleValue";
   var favouriteColour = "blue";
-  
 ```
 
-Bad:
+***BAD:***
 ```
   var example = "exampleValue",
       favouriteColour = "blue";
-      
 ```
 
 Because of variable hoisting, variables should be defined as close to the top of closure as possible. ***Remember***: only the declaration is hoisted and not the assignment.
@@ -152,7 +149,7 @@ To avoid this, use strong typing when comparing values in conditions. (The above
 
 Be sure to use dot notation when referencing object properties. Only use subscript notation when accessing a property via a variable or returning a property from a function:
 
-GOOD:
+***GOOD***:
 ```
   var myObject = {
     name: "brian",
@@ -170,7 +167,7 @@ GOOD:
   
 ```
 
-BAD:
+***BAD***:
 ```
   var myObject = {
     name: "brian",
@@ -184,12 +181,12 @@ BAD:
 
 Use the following pattern to define an array:
 
-GOOD:
+***GOOD***:
 ```
   var items = [];
 ```
 
-BAD:
+***BAD***:
 ```
   var items = new Array();
 ```
@@ -226,7 +223,7 @@ The `this` keyword in JavaScript is very important. The context of `this` change
 
 If you need to reference the scope of another object/closure inside another function, assign the context to a variable named `self`, like so:
 
-GOOD:
+***GOOD***:
 ```
   var myObject = {
     init: function(){
@@ -241,7 +238,7 @@ GOOD:
   }
 ```
 
-BAD:
+***BAD***:
 ```
   var myObject = {
     init: function(){
@@ -285,7 +282,6 @@ When binding events, never directly reference classes used for styling. Instead,
       event.preventDefault();
       var elementClicked = $(event.currentTarget).addClass("active");
    });
-   
 ```
 
 Whilst the second example is shorter, it's not scalable, nor is it possible to set the active state of the item outside of that click, making the code not very reusable. 
@@ -435,11 +431,12 @@ The second example is repetitive, messy and makes the assumption that this is th
 
 The following is a list of blogs, books and existing style guides that have incluenced our approach to our work.
 
-* [Maintainable Javascript - By Nicholas Zakas](http://www.amazon.co.uk/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680/ref=sr_1_1?s=books&ie=UTF8&qid=1395157123&sr=1-1&keywords=maintainable+javascript)
-* [The Good Parts - By Douglas Crockford](http://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?s=books&ie=UTF8&qid=1395157263&sr=1-1&keywords=the+good+parts)
-* [Pro JavaScript Patterns - By Ross Harmes and Dustin Diaz](http://www.amazon.co.uk/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X/ref=sr_1_1?s=books&ie=UTF8&qid=1395157273&sr=1-1&keywords=pro+javascript+design+patterns)
-* [JavaScript Bonsai Garden](http://bonsaiden.github.io/JavaScript-Garden/)
-* [AirBnb](https://github.com/airbnb/javascript)
-
-
+* [Book - Maintainable Javascript - By Nicholas Zakas](http://www.amazon.co.uk/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680/ref=sr_1_1?s=books&ie=UTF8&qid=1395157123&sr=1-1&keywords=maintainable+javascript)
+* [Book - The Good Parts - By Douglas Crockford](http://www.amazon.co.uk/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742/ref=sr_1_1?s=books&ie=UTF8&qid=1395157263&sr=1-1&keywords=the+good+parts)
+* [Book - Pro JavaScript Patterns - By Ross Harmes and Dustin Diaz](http://www.amazon.co.uk/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X/ref=sr_1_1?s=books&ie=UTF8&qid=1395157273&sr=1-1&keywords=pro+javascript+design+patterns)
+* [Guide - JavaScript Bonsai Garden](http://bonsaiden.github.io/JavaScript-Garden/)
+* [Guide - AirBnb](https://github.com/airbnb/javascript)
+* [Blog - Responsive News](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard)
+* [Blog - Ben Nedal](http://www.bennadel.com/)
+* [Blog - Todd Motto](http://toddmotto.com/)
 
